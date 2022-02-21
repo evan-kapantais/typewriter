@@ -13,6 +13,11 @@ section {
 	border-bottom: 1px solid;
 }
 
+.box {
+	padding: 6rem 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+
 p {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 3rem;

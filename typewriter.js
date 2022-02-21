@@ -7,25 +7,43 @@ function createPre() {
 
 class Typewriter {
 	constructor() {
-		this.handleIntersect = this.handleIntersect.bind(this);
 		this.interval = 50;
 		this.delay = 0;
-		this.intersect = false;
+		this.intersection = null;
+
+		this.handleIntersect = this.handleIntersect.bind(this);
 	}
 
 	init(options) {
 		const items = document.querySelectorAll('[data-type]');
 		this.items = items;
 
-		this.interval = options.interval || this.interval;
-		this.delay = options.delay || this.delay;
-		this.intersect = options.intersect || this.intersect;
+		if (options) {
+			this.interval = options.interval || this.interval;
+			this.delay = options.delay || this.delay;
+			this.intersection = options.intersection
+				? {
+						root: options.intersection.parent
+							? document.querySelector(options.intersection.parent)
+							: null,
+						threshold: options.intersection.threshold || 1.0,
+						margin: `${
+							options.intersection.margin ? options.intersection.margin : 0
+						}px`,
+				  }
+				: null;
+		}
 
 		this.attemptType();
 	}
 
 	attemptType() {
-		this.intersect ? this.typeWhenIntersecting() : this.typeImmediately();
+		const hasIntersectionOption =
+			this.intersection && Object.keys(this.intersection).length > 0;
+
+		hasIntersectionOption
+			? this.typeWhenIntersecting()
+			: this.typeImmediately();
 	}
 
 	handleIntersect(entries, observer) {
@@ -38,13 +56,11 @@ class Typewriter {
 	}
 
 	typeWhenIntersecting() {
-		const options = {
-			root: null,
-			threshold: 1.0,
-			margin: '0px',
-		};
+		this.observer = new IntersectionObserver(
+			this.handleIntersect,
+			this.intersection
+		);
 
-		this.observer = new IntersectionObserver(this.handleIntersect, options);
 		this.items.forEach((item) => this.observer.observe(item));
 	}
 
