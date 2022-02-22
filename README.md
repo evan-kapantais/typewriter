@@ -2,7 +2,7 @@
 
 ---
 
-### 🗂 Installation
+## 🗂 Installation
 
 **npm**
 
@@ -20,9 +20,9 @@ npm i evan-kapantais@typewriter
 
 > It's important to add the package script tag _before_ any subsequent script that is going to be using it. Otherwise, initialisation won't happen before use.
 
-### ✏️ Usage
+## ✏️ Usage
 
-#### Initialising The Typewriter
+### Initialising The Typewriter
 
 First, create an instance and initialise the typewriter.
 
@@ -76,7 +76,7 @@ const options = {
 typewriter.init(options);
 ```
 
-#### How Intersection Works
+### How Intersection Works
 
 If provided, the intersection functionality is applied globally to all elements with the `data-type` attribute. This means that the intersection options provided when initialising the typewriter will be the same for all DOM elements and cannot be overridden by individual elements.
 
@@ -94,7 +94,7 @@ A floating point number representing the percentage of the element that need to 
 
 A string value in the form of `<number>px` that specifies the margin of the parent element after which the typewriter will start typing.
 
-#### Applying to DOM Elements
+### Applying to DOM Elements
 
 To apply the typewriter effect to DOM elements, you simply need to add to them the attributes `data-type` and `data-type-text`. These are the only two attributes that are required. `data-type` should have no corresponding value, while `data-type-text`'s value should be the string text to type out. If `data-type-text` is present with no value an exception with be thrown.
 
@@ -102,7 +102,7 @@ To apply the typewriter effect to DOM elements, you simply need to add to them t
 <h1 data-type data-type-text="Hello World"></h1>
 ```
 
-#### Optional Attributes
+### Optional Attributes
 
 To pass in specific values for each affected DOM element, you just need to add the attribute name (as listed in the default values) prefixed with `data-type`. All options specified below are optional.
 
@@ -115,7 +115,7 @@ To pass in specific values for each affected DOM element, you just need to add t
 ></h1>
 ```
 
-#### Nesting
+### Nesting
 
 Consider the following scenario.
 
