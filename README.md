@@ -85,3 +85,17 @@ To pass in specific values for each affected DOM element, you just need to add t
 	data-type-intersection-margin="10px"
 ></h1>
 ```
+
+**Nested Elements**
+
+Consider the following scenario.
+
+```html
+<h1 data-type>
+	<div>
+		<p>this is some example paragraph text</p>
+	</div>
+</h1>
+```
+
+By adding the `data-type` attribute to the outermost element will result in the enclosing `div` element to be discarded. It is recommended to add the `data-type` attribute only to the elements whose inner text you intend to animate, otherwise this could result in unexpected layout changes.
