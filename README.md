@@ -24,10 +24,22 @@ npm i evan-kapantais@typewriter
 
 First, create an instance and initialise the typewriter.
 
-```javascript
-const typewriter = new Typewriter();
+**JavaScript**
 
-typewriter.init();
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+	const typewriter = new Typewriter();
+	typewriter.init();
+});
+```
+
+**React**
+
+```javascript
+useEffect(() => {
+	const typewriter = new Typewriter();
+	typewriter.init();
+}, []);
 ```
 
 **Initialising Without Arguments**
