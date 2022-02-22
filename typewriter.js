@@ -31,8 +31,16 @@ class Typewriter {
 		const items = document.querySelectorAll('[data-type]');
 
 		items.forEach((item) => {
-			item.setAttribute('data-type-text', item.innerText);
-			item.innerHTML = '';
+			try {
+				if (item.innerText === '') {
+					throw `No text provided at: ${item.parentElement.tagName.toLowerCase()} > ${item.tagName.toLowerCase()}`;
+				}
+
+				item.setAttribute('data-type-text', item.innerText);
+				item.innerHTML = '';
+			} catch (error) {
+				console.error(error);
+			}
 		});
 
 		this.items = items;
