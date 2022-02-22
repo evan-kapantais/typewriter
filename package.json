@@ -1,6 +1,6 @@
 {
   "name": "ek-typewriter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small package that types out text.",
   "author": {
     "name": "Evan Kapantais",
