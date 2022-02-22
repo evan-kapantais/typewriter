@@ -1,5 +1,5 @@
 {
-  "name": "typewriter",
+  "name": "ek-typewriter",
   "version": "1.0.0",
   "description": "A small package that types out text.",
   "author": {
@@ -8,6 +8,8 @@
     "url": "https://evankapantais.com"
   },
   "keywords": [
+    "npm",
+    "package",
     "typewriter",
     "type",
     "text",
