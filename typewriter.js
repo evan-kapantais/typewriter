@@ -1,6 +1,7 @@
 //TODO type check
 //TODO support multiline
 //TODO handle once
+//TODO global intersection / no individual options
 //TODO nesting?
 
 function createPre() {
