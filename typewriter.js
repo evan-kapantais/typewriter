@@ -29,6 +29,12 @@ class Typewriter {
 
 	init(options) {
 		const items = document.querySelectorAll('[data-type]');
+
+		items.forEach((item) => {
+			item.setAttribute('data-type-text', item.innerText);
+			item.innerHTML = '';
+		});
+
 		this.items = items;
 
 		if (options) {
