@@ -44,7 +44,7 @@ The newly created `Typewriter` instance is initialised with a set of default val
 
 **Initialising With Arguments**
 
-You can customise your global typewrite values that will apply to all DOM element that do not specify their own specific parameters. Initialising with values could look something like this.
+You can customise your global typewriter values that will be applied to all DOM element that do not specify their own parameters. Initialisation with arguments could look something like this.
 
 ```javascript
 const typewriter = new Typewriter();
