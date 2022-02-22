@@ -1,0 +1,27 @@
+{
+  "name": "typewriter",
+  "version": "1.0.0",
+  "description": "A small package that types out text.",
+  "author": {
+    "name": "Evan Kapantais",
+    "email": "evankapantais@gmail.com",
+    "url": "https://evankapantais.com"
+  },
+  "keywords": [
+    "typewriter",
+    "type",
+    "text",
+    "animation"
+  ],
+  "main": "typewriter.js",
+  "homepage": "https://github.com/evan-kapantais/typewriter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evan-kapantais/typewriter"
+  },
+  "bugs": {
+    "url": "https://github.com/evan-kapantais/typewriter/issues",
+    "email": "evankapantais@gmail.com"
+  },
+  "license": "ISC"
+}

@@ -1,8 +1,21 @@
+//TODO ensure typeText is not missing arguments, especially typeText
+//TODO type check
+//TODO support multiline
+//TODO handle once
+
 function createPre() {
 	const pre = document.createElement('pre');
 	pre.style.fontFamily = 'inherit';
 
 	return pre;
+}
+
+function isNumber(value) {
+	if (isNaN(Number(value))) {
+		throw new Error(value + ' should be of type: number');
+	} else {
+		return true;
+	}
 }
 
 class Typewriter {
@@ -19,8 +32,16 @@ class Typewriter {
 		this.items = items;
 
 		if (options) {
-			this.interval = options.interval || this.interval;
-			this.delay = options.delay || this.delay;
+			this.interval =
+				options.interval && isNumber(options.interval)
+					? Number(options.interval)
+					: this.interval;
+
+			this.delay =
+				options.delay && isNumber(options.delay)
+					? Number(options.delay)
+					: this.delay;
+
 			this.intersection = options.intersection
 				? {
 						root: options.intersection.parent
@@ -49,8 +70,12 @@ class Typewriter {
 	handleIntersect(entries, observer) {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				this.typeText(entry.target);
-				observer.unobserve(entry.target);
+				try {
+					this.typeText(entry.target);
+					observer.unobserve(entry.target);
+				} catch (error) {
+					console.error(error);
+				}
 			}
 		});
 	}
@@ -65,11 +90,20 @@ class Typewriter {
 	}
 
 	typeImmediately() {
-		this.items.forEach((item) => this.typeText(item));
+		this.items.forEach((item) => {
+			try {
+				this.typeText(item);
+			} catch (error) {
+				console.error(error);
+			}
+		});
 	}
 
 	typeText(item) {
 		const { typeText, typeInterval, typeDelay } = item.dataset;
+
+		if (!typeText)
+			throw `Typewriter text should be provided at: ${item.parentElement.tagName.toLowerCase()} > ${item.tagName.toLowerCase()}`;
 
 		let interval = null;
 		let index = 0;
