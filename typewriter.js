@@ -1,7 +1,7 @@
-//TODO ensure typeText is not missing arguments, especially typeText
 //TODO type check
 //TODO support multiline
 //TODO handle once
+//TODO nesting?
 
 function createPre() {
 	const pre = document.createElement('pre');
