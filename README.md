@@ -4,6 +4,10 @@
 
 ---
 
+## 🚧 React support coming soon 🚧
+
+---
+
 ## 🗂 Installation
 
 **npm**
@@ -52,15 +56,6 @@ Or in an HTML `script` tag before your closing `body` tag.
 		typewriter.init();
 	</script>
 </body>
-```
-
-**React**
-
-```javascript
-useEffect(() => {
-	const typewriter = new Typewriter();
-	typewriter.init();
-}, []);
 ```
 
 **Initialising Without Arguments**
